@@ -1,0 +1,12 @@
+#!/bin/sh
+
+xset r rate 180 30 &
+xset m 1/1 0 &
+xset -dpms &
+xset s noblank &
+xset s off &
+xrdb -I$OHOME ~/.Xresources &
+urxvtd &
+sh ~/.fehbg &
+compton -cC &
+exec herbstluftwm

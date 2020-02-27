@@ -25,8 +25,14 @@ source $ZSH/oh-my-zsh.sh
 unalias	l
 unalias	la
 unalias	lsa
-alias ll="ls -lh --file-type --color=always --group-directories-first"
-alias la="ls -lhA --file-type --color=always --group-directories-first"
+if [[ $(uname) == "FreeBSD" ]]; then
+    alias ll="ls -lh --color=always"
+    alias la="ls -lhA --color=always"
+    alias findports="find /usr/ports/ -type d -name"
+else
+    alias ll="ls -lh --file-type --color=always --group-directories-first"
+    alias la="ls -lhA --file-type --color=always --group-directories-first"
+fi
 alias df="df -h"
 alias grep="grep --color=always"
 alias free="free -h"

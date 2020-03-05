@@ -27,11 +27,11 @@ unalias	la
 unalias	lsa
 if [[ $(uname) == "FreeBSD" ]]; then
     alias ll="ls -lh --color=always"
-    alias la="ls -lhA --color=always"
+    alias la="ls -lha --color=always"
     alias findports="find /usr/ports/ -type d -name"
 else
     alias ll="ls -lh --file-type --color=always --group-directories-first"
-    alias la="ls -lhA --file-type --color=always --group-directories-first"
+    alias la="ls -lha --file-type --color=always --group-directories-first"
 fi
 alias df="df -h"
 alias grep="grep --color=always"

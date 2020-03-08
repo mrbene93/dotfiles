@@ -34,7 +34,6 @@ else
     alias la="ls -lha --file-type --color=always --group-directories-first"
 fi
 alias df="df -h"
-alias docker-cleanup="docker container prune -f; docker volume prune -f; docker network prune -f"
 alias grep="grep --color=always"
 alias htop="htop -d 10"
 alias free="free -h"
@@ -47,6 +46,13 @@ alias top="top -d 1"
 alias vim="vim -u $DOTFILES/.vimrc"
 
 # shell functions
+docker() {
+    if [[ $@ == "cleanup" ]]; then
+        command docker container prune -f; docker volume prune -f; docker network prune -f
+    else
+        command docker "$@"
+    fi
+}
 zfs() {
     if [[ $@ == "list" ]]; then
         command zfs list -o name,type,used,avail,refer,compressratio,mounted,mountpoint

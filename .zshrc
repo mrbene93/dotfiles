@@ -34,15 +34,16 @@ else
     alias la="ls -lha --file-type --color=always --group-directories-first"
 fi
 alias df="df -h"
+alias docker-cleanup="docker container prune -f; docker volume prune -f; docker network prune -f"
 alias grep="grep --color=always"
+alias htop="htop -d 10"
 alias free="free -h"
 alias lsblk="lsblk -o NAME,RM,RO,TYPE,SIZE,FSTYPE,MODEL,MOUNTPOINT,LABEL"
 alias lsusb="lsusb -t"
 alias salias="alias | grep"
-alias top="top -d 1"
-alias htop="htop -d 10"
 alias sudoz="sudo -s -u root ZDOTDIR=$OHOME zsh"
 alias tmux="tmux -f $DOTFILES/.tmux.conf"
+alias top="top -d 1"
 alias vim="vim -u $DOTFILES/.vimrc"
 
 # shell functions

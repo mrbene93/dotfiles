@@ -44,3 +44,12 @@ alias htop="htop -d 10"
 alias sudoz="sudo -s -u root ZDOTDIR=$OHOME zsh"
 alias tmux="tmux -f $DOTFILES/.tmux.conf"
 alias vim="vim -u $DOTFILES/.vimrc"
+
+# shell functions
+zfs() {
+    if [[ $@ == "list" ]]; then
+        command zfs list -o name,type,used,avail,refer,compressratio,mounted,mountpoint
+    else
+        command zfs "$@"
+    fi
+}

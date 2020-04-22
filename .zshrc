@@ -55,7 +55,7 @@ docker() {
 }
 zfs() {
     if [[ $@ == "list" ]]; then
-        command zfs list -o name,type,used,avail,refer,compressratio,mounted,mountpoint
+        command zfs list -o name,type,used,usedbysnapshots,refer,avail,compressratio,mounted,mountpoint
     else
         command zfs "$@"
     fi

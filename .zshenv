@@ -8,7 +8,7 @@ then
 else
     export OHOME="$(eval echo ~$USER)"
 fi
-export GIT="$OHOME/.git"
+export GIT="/usr/repos"
 export DOTFILES="$GIT/dotfiles"
 export ZSH="$DOTFILES/oh-my-zsh"
 export VISUAL="vim"

@@ -54,15 +54,16 @@ docker() {
     fi
 }
 zfs() {
-    if [[ $@ == "list" ]]; then
-        command zfs list -o name,type,used,usedbysnapshots,refer,avail,compressratio,mounted,mountpoint
+    if [[ $1 == "list" ]]; then
+        command zfs list -o name,type,used,usedbysnapshots,refer,avail,compressratio,mounted,mountpoint ${@:2:$#}
     else
         command zfs "$@"
     fi
 }
 zpool() {
-    if [[ $@ == "list" ]]; then
-        command zpool list -o name,health,capacity,size,allocated,free,expandsize,checkpoint,dedupratio,fragmentation,altroot
+    if [[ $1 == "list" ]]; then
+        command zpool list -o name,health,capacity,size,allocated,free,expandsize,checkpoint,dedupratio,fragmentation,altroot ${@:2:$#}
+
     else
         command zpool "$@"
     fi

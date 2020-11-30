@@ -1,0 +1,77 @@
+#!/bin/bash
+
+
+# kill previously open programs
+killall dzen2 conky
+
+hc() {
+    herbstclient "$@"
+}
+hc emit_hook reload
+
+
+## VARIABLES
+# set superkey
+# Mod1=Alt, Mod4=Win
+Mod=Mod4
+
+
+## TAGS
+tag_names=( 01 02 03 04 05 06 07 08 09 10 )
+tag_keys=( 1 2 3 4 5 6 7 8 9 0 )
+
+
+## KEYBINDINGS
+source $OHOME/.config/herbstluftwm/keybindings.sh
+
+
+## FUNCTIONS
+hc set focus_crosses_monitor_boundaries	1
+hc set focus_follows_mouse		0
+hc set focus_stealing_prevention	1
+#hc set gapless_grid
+#hc set monitors_locked
+hc set mouse_recenter_gap		0
+#hc set pseudotile_center_threshold
+#hc set raise_on_click
+#hc set raise_on_focus
+#hc set raise_on_focus_temporarily
+#hc set snap_distance
+#hc set snap_gap
+#hc set swap_monitors_to_get_tag
+hc set tree_style '╾│ ├└╼─┐'
+hc set update_dragged_clients		1
+
+
+## THEME
+source $OHOME/.config/herbstluftwm/theme.sh
+
+
+## RULES
+hc unrule -F
+hc rule focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=off
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+
+# unlock
+hc unlock
+
+# multi monitor
+hc detect_monitors
+
+
+## PANELS
+# variables
+tagpanel=$OHOME/.config/herbstluftwm/tags.sh
+
+# find monitor that is on the top right
+monitors="$(herbstclient list_monitors | cut -d ":" -f1)"
+
+# start dzen2 panels
+for monitor in $monitors ; do
+	"$tagpanel" $monitor &
+done
+
+# set cursor
+xsetroot -cursor_name left_ptr

@@ -7,7 +7,6 @@ DISABLE_AUTO_TITLE="false"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 ZSH_DISABLE_COMPFIX="true"
-#ZSH_CUSTOM="$DOTFILES/zsh_custom"
 
 # tmux
 ZSH_TMUX_AUTOSTART="false"
@@ -41,9 +40,9 @@ alias lsblk="lsblk -o NAME,RM,RO,TYPE,SIZE,FSTYPE,MODEL,MOUNTPOINT,LABEL"
 alias lsusb="lsusb -t"
 alias salias="alias | grep"
 alias sudoz="sudo -i -u root ZDOTDIR=$OHOME zsh"
-alias tmux="tmux -f $DOTFILES/.tmux.conf"
+alias tmux="tmux -f $OHOME/.tmux.conf"
 alias top="top -d 1"
-alias vim="vim -u $DOTFILES/.vimrc"
+alias vim="vim -u $OHOME/.vimrc"
 
 # shell functions
 docker() {

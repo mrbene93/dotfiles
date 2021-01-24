@@ -28,6 +28,9 @@ if [[ $(uname) == "FreeBSD" ]]; then
     alias ll="ls -lh --color=always"
     alias la="ls -lha --color=always"
     alias findports="find /usr/ports/ -type d -name"
+elif [[ $(uname) == "Darwin" ]]; then
+    alias ll="ls -lhG"
+    alias la="ls -lhaG"
 else
     alias ll="ls -lh --file-type --color=always --group-directories-first"
     alias la="ls -lha --file-type --color=always --group-directories-first"

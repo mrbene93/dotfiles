@@ -28,12 +28,15 @@ if [[ $(uname) == "FreeBSD" ]]; then
     alias ll="ls -lh --color=always"
     alias la="ls -lha --color=always"
     alias findports="find /usr/ports/ -type d -name"
+    alias top="top -s1"
 elif [[ $(uname) == "Darwin" ]]; then
     alias ll="ls -lhG"
     alias la="ls -lhaG"
+    alias top="top -s1"
 else
     alias ll="ls -lh --file-type --color=always --group-directories-first"
     alias la="ls -lha --file-type --color=always --group-directories-first"
+    alias top="top -d 1"
 fi
 alias df="df -h"
 alias grep="grep --color=always"
@@ -44,7 +47,6 @@ alias lsusb="lsusb -t"
 alias salias="alias | grep"
 alias sudoz="sudo -i -u root ZDOTDIR=$OHOME zsh"
 alias tmux="tmux -f $OHOME/.tmux.conf"
-alias top="top -d 1"
 alias vim="vim -u $OHOME/.vimrc"
 
 # shell functions

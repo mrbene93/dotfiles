@@ -14,6 +14,10 @@ ZSH_TMUX_AUTOSTART_ONCE="true"
 ZSH_TMUX_AUTOCONNECT="false"
 ZSH_TMUX_FIXTERM="true"
 
+# PATH
+path+=('/usr/local/texlive/bin/x86_64-linux')
+export PATH
+
 # plugins
 plugins=(colored-man-pages dotbare git git-extras rsync themes tmux wd)
 

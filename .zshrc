@@ -69,11 +69,3 @@ zfs() {
         command zfs "$@"
     fi
 }
-zpool() {
-    if [[ $1 == "list" ]]; then
-        command zpool list -vo name,health,capacity,size,allocated,free,expandsize,checkpoint,dedupratio,fragmentation,altroot ${@:2:$#}
-
-    else
-        command zpool "$@"
-    fi
-}

@@ -19,7 +19,7 @@ path+=('/usr/local/texlive/bin/x86_64-linux')
 export PATH
 
 # plugins
-plugins=(colored-man-pages dotbare git git-extras rsync themes tmux wd)
+plugins=(colored-man-pages dotbare gh git git-extras rsync themes tmux wd)
 
 # load all the stuff
 source $ZSH/oh-my-zsh.sh
@@ -64,7 +64,7 @@ docker() {
 }
 zfs() {
     if [[ $1 == "list" ]]; then
-        command zfs list -o name,type,used,usedbysnapshots,refer,avail,recordsize,compressratio,compression,mounted,mountpoint ${@:2:$#}
+        command zfs list -o name,type,used,usedbysnapshots,refer,avail,quota,recordsize,compressratio,compression,mounted,mountpoint ${@:2:$#}
     else
         command zfs "$@"
     fi

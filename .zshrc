@@ -15,7 +15,11 @@ ZSH_TMUX_AUTOCONNECT="false"
 ZSH_TMUX_FIXTERM="true"
 
 # PATH
-path+=('/usr/local/texlive/bin/x86_64-linux')
+if [[ $(uname) == "Darwin" ]]; then
+    path+=('/Volumes/Programmdaten/texlive/bin/universal-darwin')
+else
+    path+=('/usr/local/texlive/bin/x86_64-linux')
+fi
 export PATH
 
 # plugins

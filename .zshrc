@@ -31,15 +31,18 @@ unalias	lsa
 if [[ $(uname) == "FreeBSD" ]]; then
     alias ll="ls -lh --color=always"
     alias la="ls -lha --color=always"
+    alias lr="ls -lhaR --color=always"
     alias findports="find /usr/ports/ -type d -name"
     alias top="top -s1"
 elif [[ $(uname) == "Darwin" ]]; then
     alias ll="ls -lhG"
     alias la="ls -lhaG"
+    alias lr="ls -lhaGR"
     alias top="top -s1"
 else
     alias ll="ls -lh --file-type --color=always --group-directories-first"
     alias la="ls -lha --file-type --color=always --group-directories-first"
+    alias lr="ls -lhaR --file-type --color=always --group-directories-first"
     alias top="top -d 1"
 fi
 alias df="df -h"

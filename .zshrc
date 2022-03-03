@@ -23,7 +23,7 @@ fi
 export PATH
 
 # plugins
-plugins=(colored-man-pages dotbare git git-extras rsync themes tmux wd)
+plugins=(colored-man-pages dotbare gh git git-extras rsync themes tmux wd)
 
 # load all the stuff
 source $ZSH/oh-my-zsh.sh
@@ -35,15 +35,18 @@ unalias	lsa
 if [[ $(uname) == "FreeBSD" ]]; then
     alias ll="ls -lh --color=always"
     alias la="ls -lha --color=always"
+    alias lr="ls -lhaR --color=always"
     alias findports="find /usr/ports/ -type d -name"
     alias top="top -s1"
 elif [[ $(uname) == "Darwin" ]]; then
     alias ll="ls -lhG"
     alias la="ls -lhaG"
+    alias lr="ls -lhaGR"
     alias top="top -s1"
 else
     alias ll="ls -lh --file-type --color=always --group-directories-first"
     alias la="ls -lha --file-type --color=always --group-directories-first"
+    alias lr="ls -lhaR --file-type --color=always --group-directories-first"
     alias top="top -d 1"
 fi
 alias df="df -h"
@@ -68,7 +71,7 @@ docker() {
 }
 zfs() {
     if [[ $1 == "list" ]]; then
-        command zfs list -o name,type,used,usedbysnapshots,refer,avail,recordsize,compressratio,compression,mounted,mountpoint ${@:2:$#}
+        command zfs list -o name,type,used,usedbysnapshots,refer,avail,quota,recordsize,compressratio,compression,mounted,mountpoint ${@:2:$#}
     else
         command zfs "$@"
     fi

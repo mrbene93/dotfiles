@@ -49,6 +49,8 @@ else
     alias lr="ls -lhaR --file-type --color=always --group-directories-first"
     alias top="top -d 1"
 fi
+alias bareos-start="service bareos-dir onestart; service bareos-sd onestart; service bareos-fd onestart"
+alias bareos-stop="service bareos-fd onestop; service bareos-sd onestop; service bareos-dir onestop"
 alias df="df -h"
 alias grep="grep --color=always"
 alias htop="htop -d 10"

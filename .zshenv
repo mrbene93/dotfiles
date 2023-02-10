@@ -15,3 +15,4 @@ export DOTFILES="$GIT/dotfiles"
 #export ZSH="$DOTFILES/oh-my-zsh"
 #export ZSH="$HOME/.oh-my-zsh"
 export VISUAL="vim"
+export TAPE='/dev/nsa0'

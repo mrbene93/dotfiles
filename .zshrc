@@ -15,12 +15,12 @@ ZSH_TMUX_AUTOCONNECT="false"
 ZSH_TMUX_FIXTERM="true"
 
 # PATH
-if [[ $(uname) == "Darwin" ]]; then
-    path+=('/Volumes/Programmdaten/texlive/bin/universal-darwin')
-else
-    path+=('/usr/local/texlive/bin/x86_64-linux')
-fi
-export PATH
+#if [[ $(uname) == "Darwin" ]]; then
+#    path+=('/Volumes/Programmdaten/texlive/2022/bin/universal-darwin')
+#else
+#    path+=('/usr/local/texlive/2022/bin/x86_64-linux')
+#fi
+#export PATH
 
 # plugins
 plugins=(colored-man-pages dotbare gh git git-extras rsync themes tmux wd)

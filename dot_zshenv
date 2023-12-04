@@ -1,5 +1,6 @@
 export SHELL="$(which zsh)"
-export HISTSIZE="131072"
+export HISTSIZE=131072
+export SAVEHIST=1048576
 export TERM="xterm-256color"
 export LANG="de_DE.UTF-8"
 if [[ $(whoami) == "root" ]]

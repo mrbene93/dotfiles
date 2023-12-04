@@ -15,6 +15,7 @@ else
     alias lr="ls -lhaR --file-type --color=auto --group-directories-first"
     alias top="top -d 1"
 fi
+alias ..="cd .."
 alias df="df -h"
 alias fgrep="fgrep --color=auto"
 alias grep="grep --color=auto"

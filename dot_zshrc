@@ -78,6 +78,9 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' menu select
 
+# Shared history
+setopt SHARE_HISTORY
+
 # History search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search

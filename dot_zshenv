@@ -9,5 +9,6 @@ then
 else
     export OHOME="$(eval echo ~$USER)"
 fi
+export HISTFILE="$OHOME/.zsh_history"
 export VISUAL="vim"
 export TAPE='/dev/nsa0'

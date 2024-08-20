@@ -10,5 +10,6 @@ else
     export OHOME="$(eval echo ~$USER)"
 fi
 export HISTFILE="$OHOME/.zsh_history"
+export HTOPRC="$OHOME/.config/htop/htoprc"
 export VISUAL="vim"
-export TAPE='/dev/nsa0'
+export TAPE='/dev/nst0'

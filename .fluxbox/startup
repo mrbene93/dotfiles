@@ -1,4 +1,0 @@
-#!/bin/sh
-
-compton -Cf &
-exec fluxbox

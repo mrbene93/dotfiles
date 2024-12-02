@@ -3,7 +3,7 @@
 dotdir="$HOME/.git/dotfiles"
 
 # Setup SSH
-mkdir "$HOME/.ssh"
+mkdir -p "$HOME/.ssh"
 chmod 0700 "$HOME/.ssh"
 curl "https://raw.githubusercontent.com/mrbene93/dotfiles/refs/heads/master/.ssh/id_ed25519_ecker-privat.enc" | openssl enc -d -aes-256-cbc -out "$HOME/.ssh/id_ed25519_ecker-privat" -pbkdf2 -iter 100000
 chmod 0600 "$HOME/.ssh/id_ed25519_ecker-privat"

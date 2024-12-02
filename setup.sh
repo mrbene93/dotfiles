@@ -33,3 +33,6 @@ ln -s "$dotdir/.zshrc" "$HOME/.zshrc"
 ln -s "$dotdir/.config/btop/btop.conf" "$HOME/.config/btop/btop.conf"
 ln -s "$dotdir/.config/mc" "$HOME/.config/mc"
 ln -s "$dotdir/.config/starship.toml" "$HOME/.config/starship.toml"
+
+# Change default shell to zsh
+chsh -s "$(which zsh)" $USER

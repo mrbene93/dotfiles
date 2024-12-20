@@ -25,7 +25,7 @@ alias lsblk="lsblk -o NAME,RM,RO,TYPE,SIZE,FSTYPE,MODEL,MOUNTPOINT,LABEL"
 alias lsusb="lsusb -t"
 alias pgrep="pgrep -l"
 alias salias="alias | grep"
-alias sudo="sudo --preserve-env=PATH"
+alias sudo="sudo -E"
 alias tmux="tmux -f $OHOME/.tmux.conf"
 alias vim="vim -u $OHOME/.vimrc"
 alias zfssnaps='snaps=0; for snap in $(zfs list -rt filesystem -Hpo usedsnap); do snaps=$((snaps + $snap)); done; echo $snaps'

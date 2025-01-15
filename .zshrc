@@ -39,6 +39,20 @@ zfs() {
     fi
 }
 
+tar_create() {  # $1=user, $2=archivename
+    local user="$1"
+    local target="$2"
+    shift 2
+    local tobackup=("$@")
+    local dt=$(date "+%Y-%m-%d_%H-%M-%S")
+    local dir="$(dirname ${target})"
+    local filename="$(basename ${target})"
+    local fullname="${dir}/${dt}_${filename}.tar"
+    local toc="${fullname}.toc"
+    sudo -u $user tar --verbose --full-time --utc --sparse --no-check-device --sort=name --create --file="${fullname}" --index-file="${toc}" "${tobackup[@]}"
+}
+
+
 # Key bindings
 typeset -g -A key
 bindkey -e

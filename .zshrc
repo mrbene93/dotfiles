@@ -29,7 +29,7 @@ alias pgrep="pgrep -l"
 alias salias="alias | grep"
 alias sudo="sudo -E"
 alias tmux="tmux -f $OHOME/.tmux.conf"
-alias tools-av='docker run --rm --interactive=true --tty=true --net=none --device=/dev/dri:/dev/dri --volume=/etc/passwd:/etc/passwd:ro --volume=/etc/group:/etc/group:ro --volume=/mnt/data/Multimedia:/mnt/data/Multimedia:rw --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" tools-av:latest'
+alias tools-media='docker run --rm --interactive=true --tty=true --net=none --device=/dev/dri:/dev/dri --volume=/etc/passwd:/etc/passwd:ro --volume=/etc/group:/etc/group:ro --volume=/mnt/data/Multimedia:/mnt/data/Multimedia:rw --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" tools-av:latest'
 alias vim="vim -u $OHOME/.vimrc"
 alias zfssnaps='snaps=0; for snap in $(zfs list -rt filesystem -Hpo usedsnap); do snaps=$((snaps + $snap)); done; echo $snaps'
 alias zfssnap='dt=$(date '+%Y-%m-%d_%H-%M-%S'); name=$(df --output=source . | tail -n1); sudo zfs snapshot "${name}@manual_${dt}"'

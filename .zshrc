@@ -52,7 +52,8 @@ bareos_find_file() {
     FROM file \
     JOIN path ON file.pathid = path.pathid \
     JOIN job ON file.jobid = job.jobid \
-    WHERE file.name ILIKE '%${search}%';"
+    WHERE file.name ILIKE '%${search}%' \
+    ORDER BY path.path, file.name;"
 }
 zfs() {
     if [[ $1 == "list" ]]; then

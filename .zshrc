@@ -35,7 +35,25 @@ alias vim="vim -u $OHOME/.vimrc"
 alias zfssnaps='snaps=0; for snap in $(zfs list -rt filesystem -Hpo usedsnap); do snaps=$((snaps + snap)); done; numfmt --to=iec --suffix=B $snaps'
 alias zfssnap='dt=$(date '+%Y-%m-%d_%H-%M-%S'); name=$(df --output=source . | tail -n1); sudo zfs snapshot "${name}@manual_${dt}"'
 
+
 # Shell functions
+bareos_find_file() {
+    local search="$1"
+    docker exec -it Bareos_PGDB psql \
+    --username=bareos \
+    --dbname=bareos \
+    -c "SELECT \
+    file.jobid, \
+    job.name AS jobname, \
+    job.job, \
+    file.fileid, \
+    path.path, \
+    file.name AS filename \
+    FROM file \
+    JOIN path ON file.pathid = path.pathid \
+    JOIN job ON file.jobid = job.jobid \
+    WHERE file.name ILIKE '%${search}%';"
+}
 zfs() {
     if [[ $1 == "list" ]]; then
         command zfs list -o name,type,used,usedbysnapshots,refer,avail,compressratio,mounted ${@:2:$#}

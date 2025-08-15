@@ -55,6 +55,24 @@ bareos_find_file() {
     WHERE file.name ILIKE '%${search}%' \
     ORDER BY path.path, file.name;"
 }
+bareos_find_path() {
+    local search="$1"
+    docker exec -it Bareos_PGDB psql \
+    --username=bareos \
+    --dbname=bareos \
+    -c "SELECT \
+    file.jobid, \
+    job.name AS jobname, \
+    job.job, \
+    file.fileid, \
+    path.path, \
+    file.name AS filename \
+    FROM file \
+    JOIN path ON file.pathid = path.pathid \
+    JOIN job ON file.jobid = job.jobid \
+    WHERE path.path ILIKE '%${search}%' \
+    ORDER BY path.path, file.name;"
+}
 zfs() {
     if [[ $1 == "list" ]]; then
         command zfs list -o name,type,used,usedbysnapshots,refer,avail,compressratio,mounted ${@:2:$#}

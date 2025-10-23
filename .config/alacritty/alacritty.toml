@@ -7,7 +7,7 @@ padding = { x = 4, y = 4 }
 dynamic_padding = true
 decorations = "full"
 title = "Terminal"
-opacity = 0.5
+opacity = 1
 blur = true
 decorations_theme_variant = "Dark"
 

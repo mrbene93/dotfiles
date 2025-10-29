@@ -20,7 +20,10 @@ fi
 
 # Create directories
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/btop"
+mkdir -p "$HOME/.config/MangoHud"
+mkdir -p "$HOME/.config/pipewire"
 
 
 # Create symlinks
@@ -30,8 +33,11 @@ ln -s "$dotdir/.tmux.conf" "$HOME/.tmux.conf"
 ln -s "$dotdir/.vimrc" "$HOME/.vimrc"
 ln -s "$dotdir/.zshenv" "$HOME/.zshenv"
 ln -s "$dotdir/.zshrc" "$HOME/.zshrc"
+ln -s "$dotdir/.config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 ln -s "$dotdir/.config/btop/btop.conf" "$HOME/.config/btop/btop.conf"
+ln -s "$dotdir/.config/MangoHud/MangoHud.conf" "$HOME/.config/MangoHud/MangoHud.conf"
 ln -s "$dotdir/.config/mc" "$HOME/.config/mc"
+ln -s "$dotdir/.config/pipewire/pipewire.conf" "$HOME/.config/pipewire/pipewire.conf"
 ln -s "$dotdir/.config/starship.toml" "$HOME/.config/starship.toml"
 
 # Change default shell to zsh

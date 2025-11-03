@@ -24,6 +24,7 @@ mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/btop"
 mkdir -p "$HOME/.config/MangoHud"
 mkdir -p "$HOME/.config/pipewire"
+mkdir -p "$HOME/.config/superfile"
 
 
 # Create symlinks
@@ -42,6 +43,9 @@ ln -s "$dotdir/.config/MangoHud/MangoHud.conf" "$HOME/.config/MangoHud/MangoHud.
 ln -s "$dotdir/.config/mc" "$HOME/.config/mc"
 ln -s "$dotdir/.config/pipewire/pipewire.conf" "$HOME/.config/pipewire/pipewire.conf"
 ln -s "$dotdir/.config/starship.toml" "$HOME/.config/starship.toml"
+ln -s "$dotdir/.config/superfile/config.toml" "$HOME/.config/superfile/config.toml"
+ln -s "$dotdir/.config/superfile/hotkeys.toml" "$HOME/.config/superfile/hotkeys.toml"
+ln -s "$dotdir/.config/superfile/theme" "$HOME/.config/superfile/theme"
 
 # Change default shell to zsh
 chsh -s "$(which zsh)" $USER

@@ -9,6 +9,7 @@ then
 else
     export OHOME="$(eval echo ~$USER)"
 fi
+export DOTDIR="$OHOME/.git/dotfiles"
 export HISTFILE="$OHOME/.zsh_history"
 export HTOPRC="$OHOME/.config/htop/htoprc"
 export VISUAL="vim"

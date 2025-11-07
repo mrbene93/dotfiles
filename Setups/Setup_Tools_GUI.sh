@@ -3,6 +3,7 @@
 # Get Operating System Name
 OS=$(awk -F= '/^NAME=/ {print $2}' /etc/os-release | tr -d '"')
 
+
 # Arch Linux
 if [[ "$OS" == "CachyOS Linux" ]]
 then
@@ -30,3 +31,8 @@ then
     sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     sudo flatpak install --system --assumeyes flathub com.discordapp.Discord com.moonlight_stream.Moonlight com.visualstudio.code dev.lizardbyte.app.Sunshine md.obsidian.Obsidian org.localsend.localsend_app org.signal.Signal sh.cider.Cider tv.plex.PlexDesktop
 fi
+
+
+# Enable SystemD-Units
+systemctl --user daemon-reload
+systemctl --user enable --now alacritty.service

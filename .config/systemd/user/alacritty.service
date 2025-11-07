@@ -1,0 +1,14 @@
+[Unit]
+Description=Alacritty Daemon
+Documentation=https://sng.rs/posts/alacrittys-daemon-mode
+Before=graphical-session.target
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/alacritty --daemon --socket %t/alacritty.sock
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=graphical-session-pre.target

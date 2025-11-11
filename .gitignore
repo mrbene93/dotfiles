@@ -1,2 +1,3 @@
+*.swp
 .config/mc/hotlist
 .config/mc/ini

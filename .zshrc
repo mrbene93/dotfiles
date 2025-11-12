@@ -28,7 +28,7 @@ alias occ="docker exec -u www-data Nextcloud_App /usr/local/bin/php -f /var/www/
 alias pgrep="pgrep -l"
 alias salias="alias | grep"
 alias sudo="sudo -E"
-alias tmux="tmux -f $OHOME/.tmux.conf"
+alias tmux="tmux -f $OHOME/.config/tmux/tmux.conf"
 alias m4b-tool='docker run --rm --interactive=true --tty=true --net=none --device=/dev/dri:/dev/dri --volume=/etc/passwd:/etc/passwd:ro --volume=/etc/group:/etc/group:ro --volume=/mnt/data/Multimedia/Hoerbuecher:/mnt/data/Multimedia/Hoerbuecher:rw --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" sandreas/m4b-tool:latest'
 alias tools-media='docker run --rm --interactive=true --tty=true --net=none --device=/dev/dri:/dev/dri --volume=/etc/passwd:/etc/passwd:ro --volume=/etc/group:/etc/group:ro --volume=/mnt/data/Multimedia:/mnt/data/Multimedia:rw --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" tools-media:latest'
 alias vim="vim -u $OHOME/.vimrc"

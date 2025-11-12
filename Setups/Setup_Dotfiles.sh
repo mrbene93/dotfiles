@@ -26,6 +26,7 @@ mkdir -p "$HOME/.config/MangoHud"
 mkdir -p "$HOME/.config/pipewire"
 mkdir -p "$HOME/.config/systemd/user"
 mkdir -p "$HOME/.config/superfile"
+mkdir -p "$HOME/.config/tmux"
 mkdir -p "$HOME/.local/share/icons"
 
 
@@ -50,6 +51,7 @@ ln -s "$dotdir/.config/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$dotdir/.config/superfile/config.toml" "$HOME/.config/superfile/config.toml"
 ln -s "$dotdir/.config/superfile/hotkeys.toml" "$HOME/.config/superfile/hotkeys.toml"
 ln -s "$dotdir/.config/superfile/theme" "$HOME/.config/superfile/theme"
+ln -s "$dotdir/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 ln -s "$dotdir/.local/share/icons/Bibata-Modern-Ice" "$HOME/.local/share/icons/Bibata-Modern-Ice"
 
 # Change default shell to zsh

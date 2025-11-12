@@ -7,3 +7,6 @@
 [submodule ".config/hypr/themes/catppuccin.git"]
 	path = .config/hypr/themes/catppuccin.git
 	url = https://github.com/catppuccin/hyprland.git
+[submodule ".config/tmux/plugins/tmux-resurrect"]
+	path = .config/tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git

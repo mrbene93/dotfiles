@@ -13,3 +13,6 @@
 [submodule ".config/tmux/plugins/catppuccin"]
 	path = .config/tmux/plugins/catppuccin
 	url = https://github.com/catppuccin/tmux.git
+[submodule ".config/fuzzel/themes/catppuccin"]
+	path = .config/fuzzel/themes/catppuccin
+	url = https://github.com/catppuccin/fuzzel.git

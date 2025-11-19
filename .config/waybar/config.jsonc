@@ -1,17 +1,23 @@
+/* -------------
+// WAYBAR CONFIG //
+   ------------- */
+
+
 [
     {
-    // MAIN BAR //
-    "layer": "top",
-    "position": "top",
-    "name": "main",
-    "height": 28,
-    "reload_style_on_change": true,
-    // "output": "eDP-1",
+    // General
+    "reload_style_on_change": true, // Reload when config file is changed
 
-    "margin-top": 24,
-    "margin-left": 24,
-    "margin-right": 24,
+    // Positioning
+    "layer": "top",                 // Display waybar on top of all windows
+    "position": "top",              // Display waybar at the top of the screen
+    "name": "main",                 // Name added as a CSS class, for styling multiple waybars
+    "height": 32,                   // Height to be used by the bar if possible, leave blank for a dynamic value.
+    "margin-top": 4,                // Margin top
+    "margin-left": 4,               // Margin left
+    "margin-right": 4,              // Margin right
 
+    // Left Modules
     "modules-left": [
       "group/traym",
       // "custom/spacer5",
@@ -22,12 +28,16 @@
       "hyprland/window"
     ],
 
+    // Center Modules
+    /*"modules-center": [
+        // "hyprland/window"
+    ],*/
+
+    // Right Modules
     "modules-right": [
       "custom/spacer1",
       "cpu",
       "temperature",
-      "custom/nvidia",
-      // "group/storage",
       "memory#ram",
       "memory#swap",
       "disk",
@@ -35,71 +45,22 @@
       "custom/spacer2",
       "pulseaudio#input",
       "pulseaudio#output",
-      "cava",
-      "custom/headsetbattery",
       "custom/spacer3",
-      "hyprland/language",
       "backlight",
-      "custom/battery",
       "custom/spacer4",
-      "custom/weather",
-      "clock",
+      "clock"
     ],
 
     // Modules
     "disk": {
-      "interval": 16,
+      "interval": 60,
       "format": " {percentage_used}%",
       "tooltip": "{}",
       "tooltip-format": "Free {free}",
-      "on-click": "qdirstat & aplay ~/.config/sounds/interact.wav",
       "states": {
         "warning": 85,
         "critical": 95
       }
-    },
-
-    "cava": {
-        // "cava_config": "~/.config/picom.conf",
-        "framerate": 30,
-        "autosens": 0,
-        "sensitivity": 30,
-        "bars": 16,
-        "lower_cutoff_freq": 20,
-        "higher_cutoff_freq": 20000,
-        "hide_on_silence": true,
-        // "format_silent": "quiet",
-        "method": "pipewire",
-        "source": "auto",
-        "stereo": false,
-        "reverse": false,
-        "bar_delimiter": 0,
-        "monstercat": false,
-        "waves": false,
-        "noise_reduction": 0.2,
-        "input_delay": 2,
-        "sleep_timer": 5,
-        // "format-icons": ["▁","▁","▁","▁","▁","▁","▁","▁","▁","▁","▁","▁","▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-        "format-icons": ["⡀","⡀","⡄","⡆","⡇"],
-
-    },
-
-    "custom/headsetbattery": {
-      "interval": 8,
-      "return-type": "json",
-      "tooltip": true,
-      "tooltip-format": "{alt}",
-      "format": "{text}",
-      "exec": "~/.config/hypr/themes/Mocha-Power/headsetbattery.sh"
-    },
-
-
-    "custom/weather": {
-      "format": "{}° Oulu",
-      "tooltip": true,
-      "interval": 60,
-      "exec": "wttrbar --nerd --location Oulu",
-      "return-type": "json"
     },
 
     "group/traym": {
@@ -139,38 +100,8 @@
       "format-icons": ["󱩎", "󱩑", "󱩓", "󱩕", "󰛨"],
       "scroll-step": 1,
       "on-scroll-up": "brightnessctl set 2%-",
-      "on-scroll-down": "brightnessctl set +2%",
+      "on-scroll-down": "brightnessctl set +2%"
     },
-
-    "custom/nvidia": {
-      "interval": 4,
-      "return-type": "json",
-      "exec": "~/.config/hypr/themes/Mocha-Power/nvidia.sh",
-      "format": "<span size='x-large' rise='-2500'>󰢮</span>{text}",
-      "tooltip": "true",
-      "tooltip-format": "{alt}"
-    },
-
-    "custom/battery": {
-      "interval": 4,
-      "return-type": "json",
-      "exec": "~/.config/hypr/themes/Mocha-Power/bat-pp.sh refresh",
-      "exec-on-event": true,
-      "format": "{text}%",
-      "on-click": "~/.config/hypr/themes/Mocha-Power/bat-pp.sh toggle & aplay ~/.config/sounds/interact.wav",
-      "tooltip": "true",
-      "tooltip-format": "{alt}"
-    },
-
-    // "custom/battery": {
-    //   "return-type": "json",
-    //   "exec": "~/.config/hypr/themes/Mocha-Power/bat-pp2.sh refresh",
-    //   "exec-on-event": true,
-    //   "format": "{text}%",
-    //   "on-click": "~/.config/hypr/themes/Mocha-Power/bat-pp2.sh toggle & aplay ~/.config/sounds/interact.wav",
-    //   "tooltip": "true",
-    //   "tooltip-format": "{alt}"
-    // },
 
     "clock": {
       "interval": 1,
@@ -186,12 +117,11 @@
           "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
           "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>"
         }
-      },
-      "on-click": "chromium --app=https://calendar.google.com & aplay ~/.config/sounds/interact.wav"
+      }
     },
 
     "cpu": {
-      "interval": 4,
+      "interval": 5,
       "format": " {usage}%",
       "states": {
         "warning": 80,
@@ -199,18 +129,8 @@
       }
     },
 
-    "hyprland/language": {
-      "format": " {}",
-      "format-fi": "Vittu",
-      "format-ru": "Блять",
-      "min-length": 8,
-      "on-click": "hyprctl switchxkblayout current next & aplay ~/.config/sounds/interact.wav",
-      "tooltip": false,
-      "class": "language"
-    },
-
     "memory#ram": {
-      "interval": 4,
+      "interval": 30,
       "format": " {percentage}%",
       "states": {
         "warning": 80,
@@ -221,14 +141,14 @@
     },
 
     "memory#swap": {
-      "interval": 16,
+      "interval": 30,
       "format": "󰾵 {swapPercentage}%",
       "tooltip": "{}",
       "tooltip-format": "{swapUsed}/{swapTotal}GiB"
     },
 
     "network#info": {
-      "interval": 2,
+      "interval": 5,
       "format": "󱘖  Offline",
       "format-wifi": "{icon} {bandwidthDownBits}",
       "format-ethernet": "󰈀 {bandwidthDownBits}",
@@ -244,7 +164,7 @@
     },
 
     "network#up": {
-      "interval": 4,
+      "interval": 5,
       "format": " ",
       "format-wifi": "󰕒 {bandwidthUpBits}",
       "format-ethernet": "󰕒 {bandwidthUpBits}",
@@ -253,7 +173,7 @@
     },
 
     "network#down": {
-      "interval": 4,
+      "interval": 5,
       "format": "󰇚 {bandwidthDownBits}",
       "format-wifi": "󰇚 {bandwidthDownBits}",
       "format-ethernet": "󰇚 {bandwidthDownBits}",
@@ -286,7 +206,6 @@
       "special-visible-only": false,
       "format-icons": {
         "magic": "",
-        "10": "󰊴",
         "lock": ""
       }
     },
@@ -327,7 +246,7 @@
 
     "temperature": {
       "critical-threshold": 90,
-      "interval": 4,
+      "interval": 5,
       "format": "{icon} {temperatureC}°",
       "format-icons": ["", "", "", "", ""],
       "tooltip": false
@@ -382,33 +301,7 @@
       "tooltip": false,
       "on-click": " bash ~/.config/scripts/pacman.sh",
       "on-scroll-up": "",
-      "on-scroll-down": "",
-    }
-  },
-
-  {
-    // INDICATOR BAR //
-    "layer": "top",
-    "position": "top",
-    "name": "indicator",
-    "passthrough": true,
-    "reload_style_on_change": true,
-    // "output": "eDP-1",
-
-    "height": 30,
-
-    "margin-top": -29,
-    // "margin-left": 10,
-    "margin-right": 24,
-
-    "modules-right": ["custom/batteryindicator"],
-
-    "custom/batteryindicator": {
-      "interval": 4,
-      "return-type": "json",
-      "tooltip": false,
-      "format": " ",
-      "exec": "~/.config/hypr/themes/Mocha-Power/bat-pp.sh bar"
+      "on-scroll-down": ""
     }
   }
 ]

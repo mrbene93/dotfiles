@@ -56,6 +56,7 @@ ln -s "$dotdir/.config/superfile/hotkeys.toml" "$HOME/.config/superfile/hotkeys.
 ln -s "$dotdir/.config/superfile/theme" "$HOME/.config/superfile/theme"
 ln -s "$dotdir/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 ln -s "$dotdir/.local/share/icons/Bibata-Modern-Ice" "$HOME/.local/share/icons/Bibata-Modern-Ice"
+ln -s "$dotdir/Wallpaper" "$HOME/Hintergrundbilder"
 
 # Change default shell to zsh
 chsh -s "$(which zsh)" $USER

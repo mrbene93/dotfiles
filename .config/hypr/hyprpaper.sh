@@ -2,6 +2,7 @@
 ######################
 ## HYPRPAPER SCRIPT ##
 ######################
+# https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/
 
 
 # Variables

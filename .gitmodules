@@ -16,3 +16,6 @@
 [submodule ".config/fuzzel/themes/catppuccin"]
 	path = .config/fuzzel/themes/catppuccin
 	url = https://github.com/catppuccin/fuzzel.git
+[submodule ".vim/colors/catppuccin"]
+	path = .vim/colors/catppuccin
+	url = https://github.com/catppuccin/vim.git

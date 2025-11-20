@@ -28,6 +28,7 @@ mkdir -p "$HOME/.config/systemd/user"
 mkdir -p "$HOME/.config/superfile"
 mkdir -p "$HOME/.config/tmux"
 mkdir -p "$HOME/.local/share/icons"
+mkdir -p "$HOME/.vim"
 
 
 # Create symlinks
@@ -37,6 +38,7 @@ ln -s "$dotdir/.gitconfig" "$HOME/.gitconfig"
 ln -s "$dotdir/.ncmpcpp" "$HOME/.ncmpcpp"
 ln -s "$dotdir/.tmux.conf" "$HOME/.tmux.conf"
 ln -s "$dotdir/.vimrc" "$HOME/.vimrc"
+ln -s "$dotdir/.vim/colors" "$HOME/.vim/colors"
 ln -s "$dotdir/.zshenv" "$HOME/.zshenv"
 ln -s "$dotdir/.zshrc" "$HOME/.zshrc"
 ln -s "$dotdir/.config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"

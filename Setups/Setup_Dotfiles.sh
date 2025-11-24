@@ -1,62 +1,91 @@
 #!/bin/bash
 
+
+# Get Operating System Name
+OS=$(awk -F= '/^NAME=/ {print $2}' /etc/os-release | tr -d '"')
+
+# Ensure required packages are installed
+if [[ "$OS" == "Arch Linux" || "$OS" == "CachyOS Linux" ]]
+then
+    sudo pacman -Sy --noconfirm curl git openssh
+elif [[ "$OS" == "Fedora Linux" ]]
+then
+    sudo dnf install --assumeyes curl git openssh
+fi
+
+# Variables
 dotdir="$HOME/.git/dotfiles"
+usershell='zsh'
 
 # Setup SSH
-mkdir -p "$HOME/.ssh"
-chmod 0700 "$HOME/.ssh"
-curl "https://raw.githubusercontent.com/mrbene93/dotfiles/refs/heads/master/.ssh/id_ed25519_ecker-privat.enc" | openssl enc -d -aes-256-cbc -out "$HOME/.ssh/id_ed25519_ecker-privat" -pbkdf2 -iter 100000
-chmod 0600 "$HOME/.ssh/id_ed25519_ecker-privat"
-ssh-keygen -y -f "$HOME/.ssh/id_ed25519_ecker-privat" > "$HOME/.ssh/id_ed25519_ecker-privat.pub"
-cat "$HOME/.ssh/id_ed25519_ecker-privat.pub" > "$HOME/.ssh/authorized_keys"
-chmod 0600 "$HOME/.ssh/authorized_keys"
-curl -o "$HOME/.ssh/config" "https://raw.githubusercontent.com/mrbene93/dotfiles/refs/heads/master/.ssh/config"
+if [[ ! -s "$HOME/.ssh/id_ed25519_ecker-privat" ]]
+then
+    echo "Private SSH-Key not found. Please configure SSH correctly and restart the script."
+    exit 1
+fi
+if [[ ! -s "$HOME/.ssh/config" ]]
+then
+    curl -o "$HOME/.ssh/config" "https://raw.githubusercontent.com/mrbene93/dotfiles/refs/heads/master/.ssh/config"
+fi
 
 # Pull dotfiles repo
 if [[ ! -d $dotdir ]]
 then
     git clone git@github.com:mrbene93/dotfiles.git $dotdir
+    git -C $dotdir submodule update --init --recursive $dotdir
 fi
 
 # Create directories
-mkdir -p "$HOME/.config"
-mkdir -p "$HOME/.config/alacritty"
-mkdir -p "$HOME/.config/btop"
-mkdir -p "$HOME/.config/MangoHud"
-mkdir -p "$HOME/.config/pipewire"
-mkdir -p "$HOME/.config/systemd/user"
-mkdir -p "$HOME/.config/superfile"
-mkdir -p "$HOME/.config/tmux"
-mkdir -p "$HOME/.local/share/icons"
-mkdir -p "$HOME/.vim"
+directories=(
+    ".config"
+    ".config/alacritty"
+    ".config/btop"
+    ".config/MangoHud"
+    ".config/pipewire"
+    ".config/systemd/user"
+    ".config/superfile"
+    ".config/tmux"
+    ".local/share/icons"
+    ".vim"
+)
+for directory in ${directories[@]}
+do
+    mkdir -p "$HOME/$directory"
+done
 
 
 # Create symlinks
-ln -s "$dotdir/.abcde.conf" "$HOME/.abcde.conf"
-ln -s "$dotdir/.fluxbox" "$HOME/.fluxbox"
-ln -s "$dotdir/.gitconfig" "$HOME/.gitconfig"
-ln -s "$dotdir/.ncmpcpp" "$HOME/.ncmpcpp"
-ln -s "$dotdir/.tmux.conf" "$HOME/.tmux.conf"
-ln -s "$dotdir/.vimrc" "$HOME/.vimrc"
-ln -s "$dotdir/.vim/colors" "$HOME/.vim/colors"
-ln -s "$dotdir/.zshenv" "$HOME/.zshenv"
-ln -s "$dotdir/.zshrc" "$HOME/.zshrc"
-ln -s "$dotdir/.config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
-ln -s "$dotdir/.config/btop/btop.conf" "$HOME/.config/btop/btop.conf"
-ln -s "$dotdir/.config/fuzzel" "$HOME/.config/fuzzel"
-ln -s "$dotdir/.config/herbstluftwm" "$HOME/.config/herbstluftwm"
-ln -s "$dotdir/.config/hypr" "$HOME/.config/hypr"
-ln -s "$dotdir/.config/MangoHud/MangoHud.conf" "$HOME/.config/MangoHud/MangoHud.conf"
-ln -s "$dotdir/.config/mc" "$HOME/.config/mc"
-ln -s "$dotdir/.config/pipewire/pipewire.conf" "$HOME/.config/pipewire/pipewire.conf"
-ln -s "$dotdir/.config/systemd/user/alacritty.service" "$HOME/.config/systemd/user/alacritty.service"
-ln -s "$dotdir/.config/starship.toml" "$HOME/.config/starship.toml"
-ln -s "$dotdir/.config/superfile/config.toml" "$HOME/.config/superfile/config.toml"
-ln -s "$dotdir/.config/superfile/hotkeys.toml" "$HOME/.config/superfile/hotkeys.toml"
-ln -s "$dotdir/.config/superfile/theme" "$HOME/.config/superfile/theme"
-ln -s "$dotdir/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
-ln -s "$dotdir/.local/share/icons/Bibata-Modern-Ice" "$HOME/.local/share/icons/Bibata-Modern-Ice"
-ln -s "$dotdir/Wallpaper" "$HOME/Hintergrundbilder"
+symlinks=(
+    ".abcde.conf"
+    ".fluxbox"
+    ".gitconfig"
+    ".ncmpcpp"
+    ".tmux.conf"
+    ".vimrc"
+    ".vim/colors"
+    ".zshenv"
+    ".zshrc"
+    ".config/alacritty/alacritty.toml"
+    ".config/btop/btop.conf"
+    ".config/fuzzel"
+    ".config/herbstluftwm"
+    ".config/hypr"
+    ".config/MangoHud/MangoHud.conf"
+    ".config/mc"
+    ".config/pipewire/pipewire.conf"
+    ".config/systemd/user/alacritty.service"
+    ".config/starship.toml"
+    ".config/superfile/config.toml"
+    ".config/superfile/hotkeys.toml"
+    ".config/superfile/theme"
+    ".config/tmux/tmux.conf"
+    ".local/share/icons/Bibata-Modern-Ice"
+    "Wallpaper"
+)
+for symlink in ${symlinks[@]}
+do
+    ln -sf "$dotdir/$symlink" "$HOME/$symlink"
+done
 
 # Change default shell to zsh
-chsh -s "$(which zsh)" $USER
+chsh -s "$(which $usershell)" $USER

@@ -13,10 +13,11 @@ fi
 
 # Link config files
 sudo ln -sf "$dotdir/etc/sddm.conf" "/etc/sddm.conf"
+sudo ln -sf "$dotdir/usr/share/sddm/themes" "/etc/sddm-themes.d"
 
 # Adding user sddm to primary group of currently logged in user
 pgid=$(id -g)
-usermod --append --groups $pgid sddm
+sudo usermod --append --groups $pgid sddm
 
 # Enable Services
 sudo systemctl enable --now sddm.service

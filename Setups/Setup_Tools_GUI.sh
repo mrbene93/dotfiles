@@ -7,7 +7,7 @@ OS=$(awk -F= '/^NAME=/ {print $2}' /etc/os-release | tr -d '"')
 # Arch Linux
 if [[ "$OS" == "CachyOS Linux" ]]
 then
-    sudo pacman -Sy --noconfirm amdgpu_top alacritty bluez bluez-utils borg brave-bin brightnessctl coolercontrol coolercontrold corectrl darktable firefox firefox-i18n-de flatpak gamemode gamescope git libreoffice-fresh libreoffice-fresh-de lact localsend lutris moonlight-qt mpv mullvad-vpn nextcloud-client nvtop obs-studio proton-cachyos protontricks radeontop remmina signal-desktop solaar steam sunshine thunderbird thunderbird-i18n-de ttf-cascadia-code-nerd vivaldi vivaldi-ffmpeg-codecs vlc vorta wine-cachyos winetricks
+    sudo pacman -Sy --needed --noconfirm amdgpu_top alacritty bluez bluez-utils borg brave-bin brightnessctl coolercontrol coolercontrold corectrl darktable firefox firefox-i18n-de flatpak gamemode gamescope git libreoffice-fresh libreoffice-fresh-de lact localsend lutris moonlight-qt mpv mullvad-vpn nextcloud-client nvtop obs-studio proton-cachyos protontricks radeontop remmina signal-desktop solaar steam sunshine thunderbird thunderbird-i18n-de ttf-cascadia-code-nerd vivaldi vivaldi-ffmpeg-codecs vlc vorta wine-cachyos winetricks
     sudo flatpak install --system --assumeyes flathub com.discordapp.Discord com.visualstudio.code net.puddletag.puddletag sh.cider.Cider tv.plex.PlexDesktop
     sudo curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
     sudo git clone https://aur.archlinux.org/1password.git /tmp/1password.git

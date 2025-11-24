@@ -91,5 +91,8 @@ do
     ln -sf "$dotdir/$symlink" "$HOME/$symlink"
 done
 
+# Set Home directory permissions
+chmod 0750 $HOME
+
 # Change default shell to zsh
 chsh -s "$(which $usershell)" $USER

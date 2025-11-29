@@ -88,14 +88,17 @@ done
 # Create symlinks
 for symlink in ${symlinks[@]}
 do
-    ln -sf "$dotdir/$symlink" "$HOME/$symlink"
+    if [[ ! -h "$HOME/$symlink" ]]
+    then
+        ln -sf "$dotdir/$symlink" "$HOME/$symlink"
+    fi
 done
 
 # Set Home directory permissions
 chmod 0750 $HOME
 
 # Change default shell to zsh
-if [[ $SHELL != *zsh ]]
+if [[ $SHELL != *$usershell ]]
 then
     chsh -s "$(which $usershell)" $USER
 fi

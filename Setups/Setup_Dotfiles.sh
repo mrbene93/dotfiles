@@ -95,4 +95,7 @@ done
 chmod 0750 $HOME
 
 # Change default shell to zsh
-chsh -s "$(which $usershell)" $USER
+if [[ $SHELL != *zsh ]]
+then
+    chsh -s "$(which $usershell)" $USER
+fi

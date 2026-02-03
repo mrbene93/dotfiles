@@ -33,7 +33,7 @@ alias m4b-tool='docker run --rm --interactive=true --tty=true --net=none --devic
 alias tools-media='docker run --rm --interactive=true --tty=true --net=none --device=/dev/dri:/dev/dri --volume=/etc/passwd:/etc/passwd:ro --volume=/etc/group:/etc/group:ro --volume=/mnt/data/Multimedia:/mnt/data/Multimedia:rw --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" tools-media:latest'
 alias vim="vim -u $OHOME/.vimrc"
 alias zfssnaps='snaps=0; for snap in $(zfs list -rt filesystem -Hpo usedsnap); do snaps=$((snaps + snap)); done; numfmt --to=iec --suffix=B $snaps'
-alias zfssnap='dt=$(date '+%Y-%m-%d_%H-%M-%S'); name=$(df --output=source . | tail -n1); sudo zfs snapshot "${name}@manual_${dt}"'
+alias zfssnap='dt=$(date '+%Y-%m-%d_%H-%M-%S'); name=$(df --output=source . | tail -n1); sudo zfs snapshot "${name}@manual_${dt}" && echo "${name}@manual_${dt}"'
 
 
 # Shell functions

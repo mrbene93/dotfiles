@@ -15,7 +15,7 @@ else
     alias lr="ls -lhaR --file-type --color=auto --group-directories-first"
     alias top="top -d 1"
 fi
-alias clamavscan='docker exec --interactive=true --tty=true ClamAV clamdscan --verbose --stdout --wait --allmatch --multiscan'
+alias clamavscan='docker exec --interactive=true ClamAV clamdscan --verbose --stdout --wait --allmatch --multiscan'
 alias ..="cd .."
 alias df="df -h"
 alias fgrep="fgrep --color=auto"

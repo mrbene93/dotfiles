@@ -7,7 +7,7 @@ OS=$(awk -F= '/^NAME=/ {print $2}' /etc/os-release | tr -d '"')
 # Arch Linux
 if [[ "$OS" == "CachyOS Linux" ]]
 then
-    sudo pacman -Sy --needed --noconfirm amdgpu_top alacritty bluez bluez-utils borg brave-bin brightnessctl coolercontrol coolercontrold corectrl darktable firefox firefox-i18n-de flatpak freerdp gamemode gamescope git libreoffice-fresh libreoffice-fresh-de lact localsend lutris moonlight-qt mpv mullvad-vpn nextcloud-client nvtop obs-studio proton-cachyos protontricks radeontop remmina signal-desktop solaar steam sunshine thunderbird thunderbird-i18n-de ttf-cascadia-code-nerd vivaldi vivaldi-ffmpeg-codecs vlc vorta wine-cachyos winetricks
+    sudo pacman -Sy --needed --noconfirm amdgpu_top alacritty bluez bluez-utils borg brave-bin brightnessctl coolercontrol coolercontrold corectrl darktable firefox firefox-i18n-de flatpak freerdp gamemode gamescope git libreoffice-fresh libreoffice-fresh-de lact localsend lutris moonlight-qt mpv mullvad-vpn nextcloud-client nvtop obs-studio proton-cachyos protontricks radeontop remmina signal-desktop solaar steam sunshine thunderbird thunderbird-i18n-de ttf-cascadia-code-nerd vivaldi vivaldi-ffmpeg-codecs vlc vorta wine-cachyos winetricks zen-browser-bin
     sudo flatpak install --system --assumeyes flathub com.discordapp.Discord com.visualstudio.code net.puddletag.puddletag sh.cider.Cider tv.plex.PlexDesktop
     sudo curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
     sudo git clone https://aur.archlinux.org/1password.git /tmp/1password.git
@@ -30,7 +30,7 @@ then
     sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
     sudo dnf install --assumeyes 1password alacritty bluez bluez-tools borgbackup brave-browser brightnessctl cascadia-code-nf-fonts coolercontrol coolercontrold coolercontrol-liqctld corectrl darktable firefox firefox-langpacks flatpak freerdp gamemode gamescope lact libreoffice libreoffice-help-de libreoffice-langpack-de lutris mpv mullvad-vpn nextcloud-client nvtop obs-studio protontricks puddletag radeontop remmina solaar steam thunderbird vivaldi-stable vlc vorta wine winetricks
     sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    sudo flatpak install --system --assumeyes flathub com.discordapp.Discord com.moonlight_stream.Moonlight com.visualstudio.code dev.lizardbyte.app.Sunshine md.obsidian.Obsidian org.localsend.localsend_app org.signal.Signal sh.cider.Cider tv.plex.PlexDesktop
+    sudo flatpak install --system --assumeyes flathub app.zen_browser.zen com.discordapp.Discord com.moonlight_stream.Moonlight com.visualstudio.code dev.lizardbyte.app.Sunshine md.obsidian.Obsidian org.localsend.localsend_app org.signal.Signal sh.cider.Cider tv.plex.PlexDesktop
 fi
 
 

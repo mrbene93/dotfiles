@@ -15,6 +15,14 @@ else
     alias lr="ls -lhaR --file-type --color=auto --group-directories-first"
     alias top="top -d 1"
 fi
+if (( $+commands[rsync] )); then
+    _rs='rsync --archive --hard-links --acls --xattrs --mkpath --sparse --partial --verbose --progress --stats --human-readable'
+    alias cp="$_rs"
+    alias cpc="$_rs --checksum"
+    alias mv="$_rs --remove-source-files"
+    alias mvc="$_rs --checksum --remove-source-files"
+    unset _rs
+fi
 alias borg='borg --iec'
 alias clamavscan='docker exec --interactive=true ClamAV clamdscan --verbose --stdout --wait --allmatch --multiscan'
 alias ..="cd .."

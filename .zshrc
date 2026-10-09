@@ -23,7 +23,7 @@ if (( $+commands[rsync] )); then
     alias mvc="$_rs --checksum --remove-source-files"
     unset _rs
 fi
-alias aria2c='aria2c --continue --max-concurrent-downloads=2 --max-connection-per-server=4 --retry-wait=5 --disk-cache=512M --seed-time=0 --file-allocation=falloc'
+alias aria2c='aria2c --continue --force-sequential --max-concurrent-downloads=2 --max-connection-per-server=4 --retry-wait=5 --disk-cache=512M --seed-time=0 --file-allocation=falloc'
 alias borg='borg --iec'
 alias clamavscan='docker exec --interactive=true ClamAV clamdscan --verbose --stdout --wait --allmatch --multiscan'
 alias ..="cd .."

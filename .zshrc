@@ -17,10 +17,10 @@ else
 fi
 if (( $+commands[rsync] )); then
     _rs='rsync --archive --hard-links --acls --xattrs --mkpath --sparse --partial --verbose --progress --stats --human-readable'
-    alias cp="$_rs"
-    alias cpc="$_rs --checksum"
-    alias mv="$_rs --remove-source-files"
-    alias mvc="$_rs --checksum --remove-source-files"
+    alias rcp="$_rs"
+    alias rcpc="$_rs --checksum"
+    alias rmv="$_rs --remove-source-files"
+    alias rmvc="$_rs --checksum --remove-source-files"
     unset _rs
 fi
 alias aria2c='aria2c --continue --force-sequential --max-concurrent-downloads=2 --max-connection-per-server=4 --retry-wait=5 --disk-cache=512M --seed-time=0 --file-allocation=falloc'

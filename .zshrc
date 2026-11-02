@@ -40,8 +40,8 @@ alias pgrep="pgrep -l"
 alias salias="alias | grep"
 alias sudo="sudo -E"
 alias tmux="tmux -f $OHOME/.config/tmux/tmux.conf"
-alias tools-m4btool='docker compose -f /opt/Docker/Compose/Tools-M4BTool/compose.yml run --rm --workdir="$(pwd)" Tools_M4BTool'
-alias tools-media='docker compose -f /opt/Docker/Compose/Tools-Media/compose.yml run --rm --workdir="$(pwd)" Tools_Media'
+alias tools-m4btool='docker compose -f /opt/Docker/Compose/Tools-M4BTool/compose.yml run --quiet --rm --workdir="$(pwd)" Tools_M4BTool'
+alias tools-media='docker compose -f /opt/Docker/Compose/Tools-Media/compose.yml run --quiet --rm --workdir="$(pwd)" Tools_Media'
 alias vim="vim -u $OHOME/.vimrc"
 alias zfssnaps='snaps=0; for snap in $(zfs list -rt filesystem -Hpo usedsnap); do snaps=$((snaps + snap)); done; numfmt --to=iec --suffix=B $snaps'
 alias zfssnap='dt=$(date '+%Y-%m-%d_%H-%M-%S'); name=$(df --output=source . | tail -n1); sudo zfs snapshot "${name}@manual_${dt}" && echo "${name}@manual_${dt}"'

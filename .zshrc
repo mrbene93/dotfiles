@@ -28,6 +28,7 @@ alias borg='borg --iec'
 alias clamavscan='docker exec --interactive=true ClamAV clamdscan --verbose --stdout --wait --allmatch --multiscan'
 alias ..="cd .."
 alias df="df -h"
+alias fastfetch='fastfetch --disk-hide-fs zfs'
 alias fgrep="fgrep --color=auto"
 alias grep="grep --color=auto"
 alias htop="htop -d 10"
